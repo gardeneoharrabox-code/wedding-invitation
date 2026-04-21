@@ -1,0 +1,482 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Alegreya SC', serif;
+  font-display: swap;
+}
+
+: root {
+  --profile-size: clamp(150px, 40vw, 220px);
+  --frame-size: calc(var(--profile-size) + 45px);
+}
+
+.opening {
+  position: relative;
+  height: 100vh;
+  background: url('img/Main-Page-Background.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  color: white;
+  text-align: center;
+  animation: fadeIn 2s ease;
+  z-index: 3;
+}
+
+#main-profile {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px black;
+}
+
+.profile-frame {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== AVATAR ===== */
+.profile-frame .avatar {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+}
+
+.profile-frame .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== MINANG LUXURY FRAME ===== */
+.profile-frame .minang-frame {
+  position: absolute;
+  width: 265px;
+  height: 265px;
+  border-radius: 50%;
+  z-index: 1;
+
+  /* base elegant ring */
+  border: 1px solid rgba(255, 235, 210, 0.35);
+
+  /* subtle depth */
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== MINANG PATTERN LAYER (SUBTLE ORNAMENT) ===== */
+.profile-frame .minang-frame::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+
+  /* SVG pattern (songket-inspired geometric weave) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23d9b77a' stroke-opacity='0.25'%3E%3Cpath d='M0 20 L20 0 L40 20 L20 40 Z'/%3E%3Cpath d='M20 0 L20 40'/%3E%3Cpath d='M0 20 L40 20'/%3E%3C/g%3E%3C/svg%3E");
+
+  background-size: 18px 18px;
+
+  /* mask jadi lingkaran */
+  -webkit-mask: radial-gradient(circle, black 70%, transparent 72%);
+  mask: radial-gradient(circle, black 70%, transparent 72%);
+
+  opacity: 0.35;
+}
+
+/* ===== INNER CLEAN EDGE (LUXURY FINISH) ===== */
+.profile-frame .minang-frame::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 245, 230, 0.2);
+}
+
+h3 {
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-size: clamp(12px, 2.5vw, 18px);
+}
+
+.name {
+  font-family: 'Bonheur Royale';
+  font-size: clamp(28px, 6vw, 40px);
+}
+
+.kepada {
+  margin-top: 15px;
+  font-size: clamp(12px, 2.5vw, 14px);
+}
+
+.tamu {
+  font-size: clamp(13px, 3vw, 16px);
+}
+
+button {
+  padding: 10px 25px;
+  border: none;
+  background: gold;
+  color: black;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+
+/* ========================= */
+/* ✨ PARTICLE LIGHT */
+/* ========================= */
+
+/* ========================= */
+/* ✨ PARTICLES MASS */
+/* ========================= */
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(255,244,214,0.9), transparent);
+
+  filter: blur(2px);
+
+  animation: float ease-in-out infinite;
+}
+
+/* animasi global */
+@keyframes float {
+  0%   { transform: translate(0,0) scale(1); }
+  50%  { transform: translate(40px, -60px) scale(1.2); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+
+/* === LAYER === */
+.flower-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* === BASE FLOWER === */
+.flower {
+    position: absolute;
+    width: clamp(140px, 18vw, 200px);
+    max-width: 220px;
+    min-width: 140px;
+    opacity: 0.9;
+    animation: flowerEntrance 1.5s ease forwards, floating 4s ease-in-out infinite;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+      filter: 
+        brightness(1.1)
+        sepia(0.5)
+        hue-rotate(-15deg)
+        saturate(2)
+        drop-shadow(0 0 20px rgba(255, 200, 120, 0.4));
+}
+
+/* === POSISI TENGAH KIRI === */
+.flower-left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* === POSISI TENGAH KANAN === */
+.flower-right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* === ANIMASI MASUK === */
+@keyframes flowerEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.9);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+/* === ANIMASI FLOATING (HALUS) === */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.envelope-wrapper {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Amplop utama */
+.envelope {
+  position: relative;
+  width: clamp(100px, 25vw, 130px);
+  height: calc(clamp(100px, 25vw, 130px) * 0.6);
+  border-radius: 4px;
+
+  /* warna putih agak gelap + sedikit warm */
+  background:
+    linear-gradient(to bottom, #f2f2f2, #ddd6c8, #cfc6b5),
+    url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+
+  box-shadow: 
+    0 6px 12px rgba(0,0,0,0.25), /* shadow luar lebih dalam */
+    inset 0 1px 2px rgba(255,255,255,0.5),
+    inset 0 -2px 4px rgba(0,0,0,0.15); /* depth bawah */
+
+  overflow: hidden;
+}
+
+/* Tutup amplop */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* flap sedikit lebih gelap biar keliatan lipatan */
+  background: linear-gradient(to bottom, #e8e2d6, #cbbfa8);
+
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+
+  box-shadow: 
+    inset 0 -3px 6px rgba(0,0,0,0.25), /* bayangan lipatan */
+    0 1px 2px rgba(255,255,255,0.3);
+}
+
+/* garis lipatan halus (biar makin realistis) */
+.envelope::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+}
+
+/* Tulisan */
+.open-text {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+
+  color: #5c4a2e; /* warm dark */
+  text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.envelope {
+  animation: zoomIdle 4s ease-in-out infinite;
+}
+
+@keyframes zoomIdle {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.spotlight {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: clamp(300px, 80vw, 650px);
+  height: clamp(300px, 80vw, 650px);px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  z-index: 2;
+
+  background: radial-gradient(
+    circle at 50% 35%, /* 🔥 shift ke atas = feel lampu dari atas */
+
+    /* ✨ TIPIS (center core light) */
+    rgba(255, 255, 255, 0.35) 0%,
+
+    /* 🌟 masih tipis tapi mulai nyala */
+    rgba(255, 252, 240, 0.30) 12%,
+
+    /* 💡 middle light mulai kebentuk */
+    rgba(255, 240, 210, 0.22) 28%,
+
+    /* 💛 mulai “body” spotlight */
+    rgba(255, 220, 150, 0.16) 45%,
+
+    /* 🔶 mulai tebal (cone body) */
+    rgba(255, 190, 120, 0.10) 65%,
+
+    /* 🌫 edge fade */
+    rgba(0, 0, 0, 0.25) 82%,
+
+    /* 🌑 outer shadow (cone selesai) */
+    rgba(0, 0, 0, 0.55) 100%
+  );
+
+  filter: blur(40px) brightness(1.08);
+
+  animation: spotlightSmooth 22s ease-in-out infinite, flickerSoft 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+
+@keyframes spotlightSmooth {
+  0% {
+    transform: translate(-50%, -50%) translate(-18vw, -12vh);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) translate(22vw, -18vh);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) translate(28vw, 16vh);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) translate(-20vw, 24vh);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) translate(-30vw, -8vh);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) translate(-18vw, -12vh);
+  }
+}
+
+@keyframes flickerSoft {
+  0%, 100% {
+    opacity: 0.82;
+  }
+
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.corner{
+  position: absolute;
+  bottom: 0;
+  width: 220px;
+  height: 220px;
+  pointer-events: none;
+}
+
+.left-bottom{ left: 0; }
+.right-bottom{ right: 0; transform: scaleX(-1); }
+
+.white-rose{
+  position: absolute;
+  width: clamp(55px, 6vw, 110px);
+  max-width: 110px;
+}
+
+.white-rose img{
+  width: 100%;
+  transform: none;
+
+  /* warna putih kekuningan */
+  filter: brightness(1.15) sepia(0.1) saturate(3.5);
+}
+
+.f1{ bottom: 10px; left: 10px; }
+.f2{ bottom: 40px; left: 80px; }
+.f3{ bottom: 80px; left: 20px; }
+
+@keyframes sway1 {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50%     { transform: translate(5px,-6px) rotate(2deg); }
+}
+
+@keyframes sway2 {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50%     { transform: translate(-4px,-8px) rotate(-3deg); }
+}
+
+@keyframes sway3 {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50%     { transform: translate(3px,-5px) rotate(1deg); }
+}
+
+.f1{ animation: sway1 6s ease-in-out infinite; }
+.f2{ animation: sway2 7s ease-in-out infinite; }
+.f3{ animation: sway3 5.5s ease-in-out infinite; }
+
+.f1{ animation-delay: 0s; }
+.f2{ animation-delay: 1s; }
+.f3{ animation-delay: 2s; }
+
+@media (max-width: 768px) {
+  .flower-left {
+    left: -20px;
+  }
+
+  .flower-right {
+    right: -20px;
+  }
+
+  .content {
+    padding: 0 15px;
+  }
+}
