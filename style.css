@@ -263,8 +263,8 @@ button:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 900px;
-  height: 900px;
+  width: 600px;   /* 🔽 diperkecil dari 900px */
+  height: 600px;  /* 🔽 diperkecil dari 900px */
   transform: translate(-50%, -50%);
   pointer-events: none;
 
@@ -280,7 +280,7 @@ button:hover {
     rgba(0, 0, 0, 0.55) 100%
   );
 
-  filter: blur(42px) brightness(1.05);
+  filter: blur(38px) brightness(1.05);
 
   animation: spotlightSmooth 22s ease-in-out infinite, flickerSoft 8s ease-in-out infinite;
   will-change: transform, opacity;
