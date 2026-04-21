@@ -1,0 +1,324 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Alegreya SC', serif;
+}
+
+.opening {
+  position: relative;
+  height: 100vh;
+  background: url('img/Main-Page-Background.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  color: white;
+  text-align: center;
+  animation: fadeIn 2s ease;
+  z-index: 3;
+}
+
+#main-profile {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px black;
+}
+
+h3 {
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-family: 'Bonheur Royale';
+  font-size: 40px;
+  margin-bottom: 20px;
+
+}
+
+.kepada {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.tamu {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 25px;
+  border: none;
+  background: gold;
+  color: black;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+
+/* ========================= */
+/* ✨ PARTICLE LIGHT */
+/* ========================= */
+
+/* ========================= */
+/* ✨ PARTICLES MASS */
+/* ========================= */
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(255,244,214,0.9), transparent);
+
+  filter: blur(2px);
+
+  animation: float ease-in-out infinite;
+}
+
+/* animasi global */
+@keyframes float {
+  0%   { transform: translate(0,0) scale(1); }
+  50%  { transform: translate(40px, -60px) scale(1.2); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+
+/* === LAYER === */
+.flower-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* === BASE FLOWER === */
+.flower {
+    position: absolute;
+    width: 200px;
+    opacity: 0;
+    animation: flowerEntrance 1.5s ease forwards, floating 4s ease-in-out infinite;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+      filter: 
+        brightness(1.1)
+        sepia(0.5)
+        hue-rotate(-15deg)
+        saturate(1.3)
+        drop-shadow(0 0 20px rgba(255, 200, 120, 0.4));
+}
+
+/* === POSISI TENGAH KIRI === */
+.flower-left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* === POSISI TENGAH KANAN === */
+.flower-right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+/* === ANIMASI MASUK === */
+@keyframes flowerEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.9);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+/* === ANIMASI FLOATING (HALUS) === */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.envelope-wrapper {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Amplop utama */
+.envelope {
+  position: relative;
+  width: 130px;
+  height: 80px;
+  border-radius: 4px;
+
+  /* warna putih agak gelap + sedikit warm */
+  background:
+    linear-gradient(to bottom, #f2f2f2, #ddd6c8, #cfc6b5),
+    url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+
+  box-shadow: 
+    0 6px 12px rgba(0,0,0,0.25), /* shadow luar lebih dalam */
+    inset 0 1px 2px rgba(255,255,255,0.5),
+    inset 0 -2px 4px rgba(0,0,0,0.15); /* depth bawah */
+
+  overflow: hidden;
+}
+
+/* Tutup amplop */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* flap sedikit lebih gelap biar keliatan lipatan */
+  background: linear-gradient(to bottom, #e8e2d6, #cbbfa8);
+
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+
+  box-shadow: 
+    inset 0 -3px 6px rgba(0,0,0,0.25), /* bayangan lipatan */
+    0 1px 2px rgba(255,255,255,0.3);
+}
+
+/* garis lipatan halus (biar makin realistis) */
+.envelope::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+}
+
+/* Tulisan */
+.open-text {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+
+  color: #5c4a2e; /* warm dark */
+  text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.envelope {
+  animation: zoomIdle 4s ease-in-out infinite;
+}
+
+@keyframes zoomIdle {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.spotlight {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  z-index: 2;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 252, 0.42) 0%,
+    rgba(255, 250, 235, 0.30) 18%,
+    rgba(255, 236, 190, 0.18) 38%,
+    rgba(255, 210, 140, 0.08) 55%,
+    rgba(0, 0, 0, 0.28) 75%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+
+  filter: blur(42px) brightness(1.05);
+
+  animation: spotlightSmooth 22s ease-in-out infinite, flickerSoft 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes spotlightSmooth {
+  0% {
+    transform: translate(-50%, -50%) translate(-18vw, -12vh);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) translate(22vw, -18vh);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) translate(28vw, 16vh);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) translate(-20vw, 24vh);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) translate(-30vw, -8vh);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) translate(-18vw, -12vh);
+  }
+}
+
+@keyframes flickerSoft {
+  0%, 100% {
+    opacity: 0.82;
+  }
+
+  50% {
+    opacity: 0.95;
+  }
+}
+
