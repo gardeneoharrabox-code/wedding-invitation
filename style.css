@@ -5,12 +5,20 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 /* body */
 body {
     font-family: 'Alegreya SC', serif;
     background: radial-gradient(circle at center, #5a3f2d 0%, #2a1c14 100%);
     display: flex;
     justify-content: center;
+
+    position: fixed;
+    width: 100%;
 }
 
 h1, h2, h3, p, span {
@@ -30,6 +38,73 @@ h1, h2, h3, p, span {
     }
 }
 
+/* =========================
+   PRELOADER (SAFE LAYER)
+========================= */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #2a1c14; /* samakan dengan tema kamu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+.preloader-content {
+    text-align: center;
+    color: #fff;
+}
+
+.preloader-logo {
+    width: 130px;
+    margin-bottom: 3px;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%,100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+
+.preloader-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+/* progress bar */
+.preloader-bar {
+    width: 160px;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.preloader-progress {
+    width: 0%;
+    height: 100%;
+    background: whitesmoke;
+    animation: loadingBar 2s ease forwards;
+}
+
+@keyframes loadingBar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* hide helper */
+.preloader.hide {
+    opacity: 0;
+    transition: 0.6s ease;
+    pointer-events: none;
+}
+
 /* app */
 .app {
     width: 100%;
@@ -42,10 +117,66 @@ h1, h2, h3, p, span {
     background-image: url('img/background.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 
-    filter: brightness(1.15) contrast(1);
+    opacity: 0;
+    filter: brightness(0.3) contrast(10px);
+    transform: scale(1.02);
+
+    transition: all 1.2s ease;
+    will-change: opacity, transform, filter;
 }
+
+.app.ready {
+    opacity: 1;
+    filter: brightness(1.12) blur(0);
+    transform: scale(1);
+}
+
+.top,
+.middle,
+.flower-ornament,
+.bottom {
+    opacity: 0;
+    transform: translateY(-20px); /* 🔥 penting: dari atas */
+}
+
+.app.play .top {
+    animation: fadeDown 0.8s ease forwards;
+    animation-delay: 0s;
+}
+
+.app.play .middle {
+    animation: fadeDown 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.app.play .flower-ornament {
+    animation: fadeDown 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+.app.play .bottom {
+    animation: fadeDown 0.8s ease forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* 🔥 dari atas */
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.app.start-animation * {
+    animation-play-state: running;
+}
+
 
 /* overlay */
 .app::before {

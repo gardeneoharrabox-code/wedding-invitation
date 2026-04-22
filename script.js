@@ -30,3 +30,66 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // end fireflies
+
+window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+
+    setTimeout(() => {
+        preloader.classList.add("hide");
+
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 600);
+
+    }, 2000); // durasi loading
+});
+
+window.addEventListener("load", function () {
+
+    const preloader = document.getElementById("preloader");
+    const app = document.querySelector(".app");
+
+    setTimeout(() => {
+
+        preloader.classList.add("hide");
+
+        setTimeout(() => {
+            preloader.style.display = "none";
+
+            // 🔥 delay kecil untuk stabilisasi layout
+            requestAnimationFrame(() => {
+                app.classList.add("ready");
+            });
+
+        }, 600);
+
+    }, 2000);
+
+});
+
+window.addEventListener("load", function () {
+
+    const preloader = document.getElementById("preloader");
+    const app = document.querySelector(".app");
+
+    setTimeout(() => {
+
+        // 1. tutup loading
+        preloader.classList.add("hide");
+
+        setTimeout(() => {
+            preloader.style.display = "none";
+
+            // 2. TV FADE IN
+            app.classList.add("ready");
+
+            // 3. setelah TV selesai sedikit → mulai animasi konten
+            setTimeout(() => {
+                app.classList.add("play");
+            }, 1200); // sama dengan duration fade-in
+
+        }, 600);
+
+    }, 2000);
+
+});
