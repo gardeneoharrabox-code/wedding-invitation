@@ -332,7 +332,7 @@ h1, h2, h3, p, span {
 .name-top,
 .name-bottom {
     font-family: 'Bonheur Royale';
-    font-size: clamp(52px, 9vw, 84px); /* 🔥 lebih besar minimum-nya */
+    font-size: clamp(100px, 9vw, 84px); /* 🔥 lebih besar minimum-nya */
     color: #ffffff;
      text-shadow:
         0 3px 0 rgba(0,0,0,0.3),
@@ -352,7 +352,7 @@ h1, h2, h3, p, span {
 }
 
 .ampersand {
-    font-size: clamp(26px, 4vw, 22px);
+    font-size: clamp(35px, 4vw, 22px);
     color: rgba(255,255,255,0.9);
     opacity: 0.9;
     text-shadow:
@@ -571,6 +571,6 @@ h1, h2, h3, p, span {
 @media (max-width: 480px) {
     .name-top,
     .name-bottom {
-        font-size: 58px !important; /* 🔥 paksa tetap besar */
+        font-size: 80px !important; /* 🔥 paksa tetap besar */
     }
 }
