@@ -93,3 +93,26 @@ window.addEventListener("load", function () {
     }, 2000);
 
 });
+
+window.addEventListener("load", () => {
+    const preloader = document.querySelector(".preloader");
+    const app = document.querySelector(".app");
+
+    setTimeout(() => {
+
+        // sembunyikan preloader
+        preloader.classList.add("hide");
+
+        setTimeout(() => {
+            // munculkan app (fade in)
+            app.classList.add("ready");
+
+            setTimeout(() => {
+                // baru jalankan animasi isi
+                app.classList.add("play");
+            }, 600); // delay animasi konten
+
+        }, 400); // delay setelah preloader hilang
+
+    }, 2000); // sesuai loading bar kamu
+});

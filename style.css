@@ -23,6 +23,16 @@ body {
 
 h1, h2, h3, p, span {
     animation: textFadeUp 0.8s ease-out both;
+    animation-play-state: paused;
+}
+
+/* animasi baru jalan setelah .play */
+.app.play h1,
+.app.play h2,
+.app.play h3,
+.app.play p,
+.app.play span {
+    animation-play-state: running;
 }
 
 @keyframes textFadeUp {
@@ -59,7 +69,7 @@ h1, h2, h3, p, span {
 }
 
 .preloader-logo {
-    width: 130px;
+    width: 100px;
     margin-bottom: 3px;
     animation: logoPulse 2s ease-in-out infinite;
 }
@@ -101,7 +111,7 @@ h1, h2, h3, p, span {
 /* hide helper */
 .preloader.hide {
     opacity: 0;
-    transition: 0.6s ease;
+    transition: opacity 0.6s ease;
     pointer-events: none;
 }
 
@@ -122,7 +132,7 @@ h1, h2, h3, p, span {
     filter: brightness(0.3) contrast(10px);
     transform: scale(1.02);
 
-    transition: all 1.2s ease;
+    transition: all 1.2s cubic-bezier(.22,.61,.36,1);
     will-change: opacity, transform, filter;
 }
 
