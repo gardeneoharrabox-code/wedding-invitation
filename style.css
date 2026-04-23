@@ -12,7 +12,7 @@ html, body {
 
 /* body */
 body {
-    font-family: 'Alegreya SC', serif;
+    font-family: 'Patrick Hand SC';
     background: radial-gradient(circle at center, #5a3f2d 0%, #2a1c14 100%);
     display: flex;
     justify-content: center;
@@ -352,18 +352,38 @@ h1, h2, h3, p, span {
 
 /* tanggal */
 .wedding-date {
-    margin-top: 8px; /* 🔥 kasih jarak dari nama */
+    margin-top: 7px; /* 🔥 kasih jarak dari nama */
     font-size: clamp(13px, 3.5vw, 15px);
-    color: #F5F1E8;;
-    margin-top: 12px;
+    color: #E8C507;;
     z-index: 3;
 
     letter-spacing: 2px;
     font-weight: 600;
     letter-spacing: 2px;
-    text-shadow: 0 0 8px rgba(255,255,255,0.15);
-    animation-delay: 0.35s;
 
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.25); /* 🔥 layer tipis */
+    backdrop-filter: blur(2px);
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,0.6),   /* 🔥 kontras utama */
+        0 0 6px rgba(255,220,150,0.3); /* glow tetap ada */
+    animation-delay: 0.35s;
+}
+
+.wedding-date::before {
+    content: attr(data-text);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(0,0,0,0.7); /* 🔥 garis hitam */
+
+    transform: translate(10px, 7px);
+    z-index: -1;
 }
 
 /* flower ornament */
@@ -434,7 +454,7 @@ h1, h2, h3, p, span {
 
 /* button */
 .open-btn {
-    margin-bottom: 10px; /* 🔥 jarak dari guest */
+    margin-bottom: 12px; /* 🔥 jarak dari guest */
     overflow: hidden;
     border: none;
     background: transparent;
@@ -486,12 +506,13 @@ h1, h2, h3, p, span {
 }
 
 .icon {
-    font-size: 20px; /* 🔥 naikkan ini */
+    font-size: 15px; /* 🔥 naikkan ini */
 }
 
 /* envelope */
 .envelope {
     padding: 12px 24px;
+    font-family: 'Patrick Hand SC';
 
     background: rgba(255,255,255,0.15);
     border: 1px solid rgba(255,255,255,0.4);
@@ -503,8 +524,6 @@ h1, h2, h3, p, span {
 
     text-shadow: 0 2px 6px rgba(0,0,0,0.4);
     animation-delay: 0.5s;
-    text-align: center;
-    justify-content: center;
 }
 
 /* guest */
