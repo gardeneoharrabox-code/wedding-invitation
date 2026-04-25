@@ -12,6 +12,11 @@ body {
     font-family: 'Alegreya SC';
 }
 
+.notranslate {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 /* ================= CENTERING ================= */
 .outer {
     width: 100%;
@@ -25,10 +30,16 @@ body {
 .phone-frame {
     width: 100%;
     max-width: 420px;
+
     height: 100vh;
-    background: #f2f2f2;; /* putih elegan */
+    height: 100dvh; /* 🔥 FIX modern mobile */
+
+    background: #f2f2f2;
     position: relative;
     overflow: hidden;
+
+    /* 🔥 safe spacing */
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* CONTAINER */
@@ -86,7 +97,9 @@ body {
     padding: 30px 25px;
 
     display: grid;
-    grid-template-rows: 0.8fr 1.6fr 1.2fr;
+
+    /* 🔥 FIX: jangan pakai fr rigid */
+    grid-template-rows: auto 1fr auto;
 
     position: relative;
     z-index: 10;
@@ -119,7 +132,7 @@ body {
 .couple {
     font-family: 'Bonheur Royale';
     text-align: center;
-    margin-top: -35%; /* naik sedikit */
+    margin-top: -2.5%; /* naik sedikit */
     color: #2E2E2E;
 }
 
@@ -326,8 +339,10 @@ body {
 
 .bottom {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: center; /* 🔥 dari flex-end → center */
+    align-items: flex-end;
+
+    padding-bottom: 20px; /* 🔥 kasih jarak aman bawah */
 }
 
 .bottom-box {
@@ -345,6 +360,9 @@ body {
     -webkit-backdrop-filter: blur(6px);
 
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+    /* 🔥 FIX RESPONSIVE POSITION */
+    margin-bottom: 10px;
 }
 
 /* TEXT */
@@ -369,6 +387,7 @@ body {
     cursor: pointer;
     z-index: 1;
     font-family: 'Alegreya SC';
+    border-radius: 6px;
 }
 
 /* ================= LOADING ================= */
@@ -729,6 +748,60 @@ body.locked {
     transform: scale(1.1);
 }
 
+/* ================= LIGHTBOX ================= */
+/* ================= LIGHTBOX ================= */
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+/* ACTIVE */
+.lightbox.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* IMAGE */
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+    transform: scale(0.9);
+    transition: 0.3s ease;
+}
+
+/* ZOOM EFFECT */
+.lightbox.show img {
+    transform: scale(1);
+}
+
+/* CLOSE BUTTON */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
 /* ================= LOVE STORY SECTION ================= */
 .story-section {
     width: 100%;
@@ -997,4 +1070,19 @@ body.locked {
     font-size: 13px;
     color: #6b4f3b;
     opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+
+    .content {
+        padding: 25px 18px;
+    }
+
+    .bottom {
+        padding-bottom: 30px; /* 🔥 kasih ruang lebih */
+    }
+
+    .bottom-box {
+        transform: translateY(-5px); /* 🔥 naik sedikit universal */
+    }
 }

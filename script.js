@@ -201,3 +201,38 @@ function loadComments() {
     });
 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const images = document.querySelectorAll(".gallery-item img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("lightboxClose");
+
+    // ======================
+    // OPEN LIGHTBOX
+    // ======================
+    images.forEach(img => {
+        img.addEventListener("click", () => {
+            lightbox.classList.add("show");
+            lightboxImg.src = img.src;
+        });
+    });
+
+    // ======================
+    // CLOSE BUTTON
+    // ======================
+    closeBtn.addEventListener("click", () => {
+        lightbox.classList.remove("show");
+    });
+
+    // ======================
+    // CLICK OUTSIDE IMAGE
+    // ======================
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove("show");
+        }
+    });
+
+});
