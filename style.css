@@ -114,7 +114,7 @@ body {
 
 .top h3 {
     font-size: 17px;
-    color: #2E2E2E;
+    color: #2B1B1D;
     letter-spacing: 2.5px;
 }
 
@@ -366,13 +366,19 @@ body {
 }
 
 /* TEXT */
-.guest {
+.guest p {
     text-align: center;
+    color: #3A2A2C;
+}
+
+.guest h4 {
+    text-align: center;
+    color: #2B1B1D;
 }
 
 .date {
     font-size: 14px;
-    color: #4A3E3E;
+    color: #2B1B1D;
     letter-spacing: 1.5px;
     font-weight: bold;
 }
@@ -381,8 +387,8 @@ body {
 .open-btn {
     margin-top: 10px;
     padding: 12px 25px;
-    background: #6b4f3b;
-    color: #fff;
+    background: #6B0F1A;
+    color: #FFFFFF;
     border: none;
     cursor: pointer;
     z-index: 1;
@@ -421,6 +427,10 @@ body {
     font-size: 20px;
 }
 
+.loader-container p {
+    color: #3A2A2C;
+}
+
 /* BAR */
 .loading-bar {
     width: 100%;
@@ -434,7 +444,7 @@ body {
 .progress {
     width: 0%;
     height: 100%;
-    background: #6b4f3b;
+    background: #800020;
 }
 
 /* ================= LOCK SCROLL AWAL ================= */
@@ -467,14 +477,14 @@ body.locked {
     font-family: 'Playfair Display';
     font-size: 16px;
     line-height: 1.8;
-    color: #2E2E2E;
+    color: #3A2A2C;
     margin-bottom: 15px;
 }
 
 .quote-source {
     font-size: 13px;
     letter-spacing: 1px;
-    color: #6b4f3b;
+    color: #2B1B1D;
 }
 
 /* ================= INVITATION TEXT ================= */
@@ -520,7 +530,7 @@ body.locked {
 .profile-role {
     font-size: 14px;
     letter-spacing: 2px;
-    color: #6b4f3b;
+    color: #2B1B1D;
     margin-bottom: 15px;
 }
 
@@ -580,6 +590,7 @@ body.locked {
         opacity: 0.8;
     }
 }
+
 .profile-img {
     width: 140px;
     height: 140px;
@@ -602,7 +613,7 @@ body.locked {
 .profile-name {
     font-family: 'Bonheur Royale';
     font-size: 60px;
-    color: #2E2E2E;
+    color: #2B1B1D;
     margin-bottom: 15px;
 }
 
@@ -610,7 +621,7 @@ body.locked {
 .profile-parent {
     font-size: 14px;
     line-height: 1.7;
-    color: #4A3E3E;
+    color: #3A2A2C;
 }
 
 .event-section {
@@ -634,7 +645,7 @@ body.locked {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 25px;
-    color: #2E2E2E;
+    color: #2B1B1D;
 }
 
 /* ITEM */
@@ -644,13 +655,13 @@ body.locked {
 
 .event-item h3 {
     font-size: 15px;
-    color: #6b4f3b;
+    color: #6B0F1A;
     margin-bottom: 5px;
 }
 
 .event-item p {
     font-size: 14px;
-    color: #2E2E2E;
+    color: #3A2A2C;
 }
 
 /* MAP BUTTON */
@@ -661,8 +672,8 @@ body.locked {
 .map-btn {
     display: inline-block;
     padding: 10px 18px;
-    background: #6b4f3b;
-    color: white;
+    background: #6B0F1A;
+    color: #FFFFFF;
     text-decoration: none;
     border-radius: 8px;
     font-size: 14px;
@@ -672,7 +683,7 @@ body.locked {
 .countdown-box h3 {
     margin-bottom: 15px;
     font-size: 15px;
-    color: #6b4f3b;
+    color: #6B0F1A;
 }
 
 .countdown {
@@ -692,12 +703,12 @@ body.locked {
 .countdown span {
     font-size: 18px;
     font-weight: bold;
-    color: #2E2E2E;
+    color: #2B1B1D;
 }
 
 .countdown p {
     font-size: 12px;
-    color: #6b4f3b;
+    color: #3A2A2C;
 }
 
 /* ================= GALLERY SECTION ================= */
@@ -715,7 +726,7 @@ body.locked {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 25px;
-    color: #2E2E2E;
+    color: #2B1B1D;
 }
 
 /* GRID 3 KOLOM */
@@ -817,7 +828,7 @@ body.locked {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 40px;
-    color: #2E2E2E;
+    color: #2B1B1D;
 }
 
 /* ================= TIMELINE WRAPPER ================= */
@@ -872,7 +883,7 @@ body.locked {
 
 .story-content h3 {
     font-size: 16px;
-    color: #6b4f3b;
+    color: #6B0F1A;
     margin-bottom: 6px;
     font-weight: 600;
 }
@@ -880,7 +891,7 @@ body.locked {
 .story-content p {
     font-size: 14px;
     line-height: 1.7;
-    color: #2E2E2E;
+    color: #3A2A2C;
 }
 
 /* ================= FINAL (HARI H SPECIAL STYLE) ================= */
@@ -909,7 +920,7 @@ body.locked {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 25px;
-    color: #2E2E2E;
+    color: #2B1B1D;
 }
 
 /* FORM */
@@ -929,6 +940,7 @@ body.locked {
     font-family: 'Alegreya SC';
     font-size: 14px;
     outline: none;
+    color: #3A2A2C;
 }
 
 .comment-form textarea {
@@ -939,8 +951,8 @@ body.locked {
 /* BUTTON */
 .comment-form button {
     padding: 12px;
-    background: #6b4f3b;
-    color: #fff;
+    background: #6B0F1A;
+    color: #FFFFFF;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -988,12 +1000,12 @@ body.locked {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 15px;
-    color: #2E2E2E;
+    color: #2B1B1D;
 }
 
 .gift-desc {
     font-size: 14px;
-    color: #2E2E2E;
+    color: #3A2A2C;
     line-height: 1.7;
     margin-bottom: 25px;
 }
@@ -1022,13 +1034,13 @@ body.locked {
 /* TEXT */
 .qris-text {
     font-size: 13px;
-    color: #6b4f3b;
+    color: #3A2A2C;
 }
 
 .qris-name {
     font-size: 13px;
     font-weight: bold;
-    color: #2E2E2E;
+    color: #6B0F1A;
 }
 
 /* ================= FOOTER ================= */
@@ -1046,14 +1058,14 @@ body.locked {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 15px;
-    color: #2E2E2E;
+    color: #2B1B1D;
 }
 
 /* TEXT */
 .footer-text {
     font-size: 14px;
     line-height: 1.7;
-    color: #2E2E2E;
+    color: #3A2A2C;
     margin-bottom: 25px;
 }
 
@@ -1061,7 +1073,7 @@ body.locked {
 .footer-names {
     font-size: 20px;
     font-family: 'Bonheur Royale';
-    color: #6b4f3b;
+    color: #3A2A2C;
     margin-bottom: 15px;
 }
 
